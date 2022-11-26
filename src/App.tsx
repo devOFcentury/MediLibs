@@ -1,7 +1,10 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, setupIonicReact, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import Menu from './components/Menu';
+import Acceuil from './pages/Acceuil/Acceuil';
+import Movies from './pages/Movies/Movies';
+import TV from './pages/TV/TV';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -27,14 +30,20 @@ setupIonicReact();
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
+      <IonSplitPane contentId='main'>
+        <Menu/>
+        <IonRouterOutlet id='main'>
+          <Route exact path='/acceuil' component={Acceuil} />
+          <Route exact path='/tv' component={TV} />
+          <Route exact path='/tv/:genre/:id' component={TV} />
+          <Route exact path='/movies' component={Movies} />
+          <Route exact path='/movies/:genre/:id' component={Movies} />
+
+          <Route exact path="/">
+            <Redirect to="/acceuil" />
+          </Route>
+        </IonRouterOutlet>
+      </IonSplitPane>
     </IonReactRouter>
   </IonApp>
 );
