@@ -9,16 +9,18 @@ const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
 
 interface SwiperProps {
-     results: any
+     results: any,
+     setData: any,
+     setOpen: any
 }
 
-const Swipe: React.FC<SwiperProps> = ({results}) => {
+const Swipe: React.FC<SwiperProps> = ({results, setData, setOpen}) => {
 
 
-     useEffect(() => {
-      
-     }, [])
-     
+     const activeModal = (movie: any) => {
+          setData({...movie});
+          setOpen((open: boolean) => !open);
+     }
      return(
           <Swiper
           spaceBetween={20}
@@ -26,7 +28,7 @@ const Swipe: React.FC<SwiperProps> = ({results}) => {
           >
                {
                     results.slice(0, 11).map((movie: any, index: number) => (
-                         <SwiperSlide key={index}>
+                         <SwiperSlide key={index} onClick={() => activeModal(movie)}>
                               <IonImg src={API_IMG+movie.poster_path}/>
                          </SwiperSlide>
                     ))

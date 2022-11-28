@@ -9,7 +9,8 @@ import {
   IonToolbar, 
 } from '@ionic/react';
 import React, { useState, useEffect } from 'react';
-import SwipeContainer from '../../components/SwipeContainer'
+import SwipeContainer from '../../components/SwipeContainer';
+import InfoMovie from '../../components/InfoMovie';
 import './Acceuil.css';
 
 const URL_MOVIES = 'https://api.themoviedb.org/3/movie/popular?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&language=fr-FR';
@@ -21,6 +22,8 @@ const Acceuil: React.FC = () => {
   const [movies, setMovies] = useState([] as any);
   const [tv, setTv] = useState([] as any);
   const [trending, setTrending] = useState([] as any);
+  const [open, setOpen] = useState(false);
+  const [data, setData] = useState({} as any);
 
   useEffect(() => {
     fetch(URL_MOVIES)
@@ -50,11 +53,12 @@ const Acceuil: React.FC = () => {
               
               <img src='../../assets/Woman-king.jpg' alt='woman' />
               <p className='box-title'>Top film</p>
-              <SwipeContainer results={movies}  />
+              <SwipeContainer results={movies} setData={setData} setOpen={setOpen} />
               <p className='box-title'>TV</p>
-              <SwipeContainer results={tv} />
+              <SwipeContainer results={tv} setData={setData} setOpen={setOpen} />
               <p className='box-title'>Tendances</p>
-              <SwipeContainer results={trending} />
+              <SwipeContainer results={trending} setData={setData} setOpen={setOpen} />
+              <InfoMovie open={open} setOpen={setOpen} data={data} />
          </div>
         </IonContent>
 

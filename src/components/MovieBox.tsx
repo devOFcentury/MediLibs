@@ -14,14 +14,21 @@ const API_SEARCH = "https://api.themoviedb.org/3/search/movie?api_key=707b3d8f99
 interface MoviesProps {
     moviesprops: any,
     tv_movies: 'tv' | 'movie'
-    simpleUrl: boolean
+    simpleUrl: boolean,
+    setOpen: any,
+    setData: any
 }
 
-const MoviesBox: React.FC<MoviesProps> = ({ moviesprops, tv_movies, simpleUrl }) => {
+const MoviesBox: React.FC<MoviesProps> = ({ moviesprops, tv_movies, simpleUrl, setData, setOpen }) => {
 
   const [search, setSearch] = useState('');
   const [saveData, setSaveData] = useState([] as any);
   const [iskeyEnter, setIskeyEnter] = useState(false);
+
+  const activeModal = (movie: any) => {
+    setData({...movie});
+    setOpen((open: boolean) => !open);
+}
 
   // useEffect(() => {
   //   console.log('MovieBox')
@@ -37,7 +44,7 @@ const MoviesBox: React.FC<MoviesProps> = ({ moviesprops, tv_movies, simpleUrl })
 
   const handleKeypress = async (e: any) => {
     if(e.key === 'Enter' && search !== '') {
-      const searchResponse = await fetch(`https://api.themoviedb.org/3/search/${tv_movies}?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&query=${search}`);
+      const searchResponse = await fetch(`https://api.themoviedb.org/3/search/${tv_movies}?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&query=${search}&language=fr-FR`);
       const searchJson = await searchResponse.json();
       setSaveData(searchJson.results);
       setIskeyEnter(true)
@@ -74,7 +81,7 @@ const MoviesBox: React.FC<MoviesProps> = ({ moviesprops, tv_movies, simpleUrl })
             <div className="grid">
           {
             data.map((item: any, index: any) => (
-              <IonCard key={index}>
+              <IonCard key={index} onClick={() => activeModal(item)}>
                 <IonImg src={item.poster_path ? (API_IMG+item.poster_path) : '../../assets/default-image.jpg'} alt='image du film' />
               </IonCard>
             ))
