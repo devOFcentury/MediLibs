@@ -28,7 +28,7 @@ const MoviesBox: React.FC<MoviesProps> = ({ moviesprops, tv_movies, simpleUrl, s
   const activeModal = (movie: any) => {
     setData({...movie});
     setOpen((open: boolean) => !open);
-}
+  }
 
   // useEffect(() => {
   //   console.log('MovieBox')
@@ -61,7 +61,7 @@ const MoviesBox: React.FC<MoviesProps> = ({ moviesprops, tv_movies, simpleUrl, s
           <IonSearchbar 
             placeholder='Recherher un film' 
             value={search} 
-            onKeyPress={handleKeypress} 
+            onKeyPress={handleKeypress}
             onIonChange={e => {
               setSearch(e.detail.value!);
               if(e.detail.value! === '') {

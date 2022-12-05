@@ -4,7 +4,8 @@ import './Menu.css';
 import { 
      homeOutline,
      tvOutline,
-     filmOutline
+     filmOutline,
+     bookOutline
    } from 'ionicons/icons';
 import { 
      IonAccordion,
@@ -30,23 +31,29 @@ interface Path {
 
 const paths: Path[] = [
      {
-       title: 'Acceuil',
-       url: '/acceuil',
-       iosIcon: homeOutline,
-       mdIcon: homeOutline
+          title: 'Acceuil',
+          url: '/acceuil',
+          iosIcon: homeOutline,
+          mdIcon: homeOutline
      },
      {
-       title: 'Tv',
-       url: '/tv',
-       iosIcon: tvOutline,
-       mdIcon: tvOutline
+          title: 'Tv',
+          url: '/tv',
+          iosIcon: tvOutline,
+          mdIcon: tvOutline
      },
      {
-       title: 'Films',
-       url: '/movies',
-       iosIcon: filmOutline,
-       mdIcon: filmOutline
+          title: 'Films',
+          url: '/movies',
+          iosIcon: filmOutline,
+          mdIcon: filmOutline
      },
+     {
+          title: 'Livres',
+          url: '/livres',
+          iosIcon: bookOutline,
+          mdIcon: bookOutline
+     }
    
      
 ];
@@ -85,6 +92,17 @@ const Menu: React.FC = () => {
                     {
                          paths.map((item1, index) => {
                               if(index === 0) {
+                                   return (
+                                        <IonMenuToggle key={index} autoHide={false}>
+                                             <IonItem  routerLink={item1.url} routerDirection="none">
+                                                  <IonIcon icon={item1.iosIcon} slot="start"></IonIcon>
+                                                  {item1.title}
+                                             </IonItem>
+                                        </IonMenuToggle>
+                                   );
+                              }
+
+                              if(index === paths?.length - 1) {
                                    return (
                                         <IonMenuToggle key={index} autoHide={false}>
                                              <IonItem  routerLink={item1.url} routerDirection="none">

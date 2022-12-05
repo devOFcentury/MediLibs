@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
-import InfoMovie from '../../components/InfoMovie';
+import Info from '../../components/Info';
 import MoviesBox from '../../components/MovieBox';
 import './TV.css';
 
@@ -79,7 +79,7 @@ const TV: React.FC<genreProps> = ({match}) => {
 
         <IonContent>
           <MoviesBox moviesprops={tvMovies} tv_movies='tv' simpleUrl={simpleUrl} setOpen={setOpen} setData={setData} />
-          <InfoMovie open={open} setOpen={setOpen} data={data} />
+          <Info open={open} setOpen={setOpen} data={data} />
         </IonContent>
 
       <IonFooter>
