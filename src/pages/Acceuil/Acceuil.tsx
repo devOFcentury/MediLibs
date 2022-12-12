@@ -9,14 +9,16 @@ import {
   IonToolbar, 
 } from '@ionic/react';
 import React, { useState, useEffect } from 'react';
+import { 
+  URL_MOVIES, 
+  URL_TV,
+  URL_Trending,
+  URL_BOOK
+} from "../../API.js";
 import SwipeContainer from '../../components/SwipeContainer';
 import Info from '../../components/Info';
 import './Acceuil.css';
 
-const URL_MOVIES = 'https://api.themoviedb.org/3/movie/popular?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&language=fr-FR';
-const URL_TV = 'https://api.themoviedb.org/3/tv/popular?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&language=fr-FR';
-const URL_Trending = 'https://api.themoviedb.org/3/trending/all/day?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&language=fr-FR';
-const URL_BOOK = 'https://example-data.draftbit.com/books?_limit=10';
 
 
 const Acceuil: React.FC = () => {

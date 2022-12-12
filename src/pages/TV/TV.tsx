@@ -10,10 +10,10 @@ import {
   IonToolbar, 
 } from '@ionic/react';
 import React, { useState, useEffect } from 'react';
+import { API_MOVIES_BY_GENRES, URL_TV } from '../../API.js';
 import { RouteComponentProps } from 'react-router';
 import Info from '../../components/Info';
 import MoviesBox from '../../components/MovieBox';
-import './TV.css';
 
 
 interface genreProps extends RouteComponentProps<{
@@ -21,8 +21,6 @@ interface genreProps extends RouteComponentProps<{
   genre: string
 }>{}
 
-const API_MOVIES_BY_GENRES = 'https://api.themoviedb.org/3/discover/tv?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&language=fr-FR&with_genres=';
-const URL_TV = 'https://api.themoviedb.org/3/tv/popular?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&language=fr-FR';
 
 const TV: React.FC<genreProps> = ({match}) => {
 

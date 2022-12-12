@@ -9,14 +9,9 @@ import {
      IonToolbar
 } from '@ionic/react';
 import React, {useEffect, useState} from 'react';
+import { URL_BOOK } from "../../API.js";
 import BookBox from '../../components/BookBox';
 import Info from '../../components/Info';
-import './Book.css';
-
-const URL_BOOK = 'https://example-data.draftbit.com/books?_limit=20';
-
-
-
 
 
 const Book: React.FC = () => {

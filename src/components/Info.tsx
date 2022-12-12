@@ -1,16 +1,23 @@
-import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonImg, IonItem, IonLabel, IonList, IonModal, IonRow, IonToolbar } from '@ionic/react';
+import { 
+     IonButton, 
+     IonButtons, 
+     IonContent, 
+     IonHeader, 
+     IonImg, 
+     IonItem, 
+     IonLabel, 
+     IonList, 
+     IonModal, 
+     IonToolbar 
+} from '@ionic/react';
 import React from 'react';
+import { API_IMG } from "../API.js";
 
 interface InfoMoviesProps {
      open: boolean,
      setOpen: any,
      data: any
 }
-
-const API_IMG = "https://image.tmdb.org/t/p/w500/";
-
-
-
 
 const Info:React.FC<InfoMoviesProps> = ({open, setOpen, data}) => {
 
@@ -79,7 +86,7 @@ const Info:React.FC<InfoMoviesProps> = ({open, setOpen, data}) => {
           <IonContent className='ion-padding'>
                
                {
-                    data?.type === 'book' ? (showBook) : (showMovieTV)
+                    data?.type === 'book' ? showBook : showMovieTV
                }
                
           </IonContent>
