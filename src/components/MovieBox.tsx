@@ -28,7 +28,7 @@ const MoviesBox: React.FC<MoviesProps> = ({ moviesprops, tv_movies, simpleUrl, s
   const activeModal = (movie: any) => {
     setData({...movie});
     setOpen((open: boolean) => !open);
-}
+  }
 
   // useEffect(() => {
   //   console.log('MovieBox')
@@ -61,7 +61,7 @@ const MoviesBox: React.FC<MoviesProps> = ({ moviesprops, tv_movies, simpleUrl, s
           <IonSearchbar 
             placeholder='Recherher un film' 
             value={search} 
-            onKeyPress={handleKeypress} 
+            onKeyPress={handleKeypress}
             onIonChange={e => {
               setSearch(e.detail.value!);
               if(e.detail.value! === '') {
@@ -82,7 +82,7 @@ const MoviesBox: React.FC<MoviesProps> = ({ moviesprops, tv_movies, simpleUrl, s
           {
             data.map((item: any, index: any) => (
               <IonCard key={index} onClick={() => activeModal(item)}>
-                <IonImg src={item.poster_path ? (API_IMG+item.poster_path) : '../../assets/default-image.jpg'} alt='image du film' />
+                <IonImg className='te' src={item.poster_path ? (API_IMG+item.poster_path) : '../../assets/default-image.jpg'} alt='image du film' />
               </IonCard>
             ))
           }

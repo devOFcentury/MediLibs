@@ -4,7 +4,8 @@ import './Menu.css';
 import { 
      homeOutline,
      tvOutline,
-     filmOutline
+     filmOutline,
+     bookOutline
    } from 'ionicons/icons';
 import { 
      IonAccordion,
@@ -30,23 +31,29 @@ interface Path {
 
 const paths: Path[] = [
      {
-       title: 'Acceuil',
-       url: '/acceuil',
-       iosIcon: homeOutline,
-       mdIcon: homeOutline
+          title: 'Acceuil',
+          url: '/acceuil',
+          iosIcon: homeOutline,
+          mdIcon: homeOutline
      },
      {
-       title: 'Tv',
-       url: '/tv',
-       iosIcon: tvOutline,
-       mdIcon: tvOutline
+          title: 'Tv',
+          url: '/tv',
+          iosIcon: tvOutline,
+          mdIcon: tvOutline
      },
      {
-       title: 'Films',
-       url: '/movies',
-       iosIcon: filmOutline,
-       mdIcon: filmOutline
+          title: 'Films',
+          url: '/movies',
+          iosIcon: filmOutline,
+          mdIcon: filmOutline
      },
+     {
+          title: 'Livres',
+          url: '/livres',
+          iosIcon: bookOutline,
+          mdIcon: bookOutline
+     }
    
      
 ];
@@ -95,6 +102,17 @@ const Menu: React.FC = () => {
                                    );
                               }
 
+                              if(index === paths?.length - 1) {
+                                   return (
+                                        <IonMenuToggle key={index} autoHide={false}>
+                                             <IonItem  routerLink={item1.url} routerDirection="none">
+                                                  <IonIcon icon={item1.iosIcon} slot="start"></IonIcon>
+                                                  {item1.title}
+                                             </IonItem>
+                                        </IonMenuToggle>
+                                   );
+                              }
+
                               return(
                                    <IonAccordion key={index} value={`${index}`}>
                                         <IonItem slot='header'>
@@ -102,15 +120,15 @@ const Menu: React.FC = () => {
                                              <IonLabel>{item1.title}</IonLabel>
                                         </IonItem>
                                         <IonMenuToggle autoHide={false} slot='content'>
-                                                       <IonItem  routerLink={item1.url} routerDirection="none">
-                                                            Films
+                                                       <IonItem className='sous_menu'  routerLink={item1.url} routerDirection="none">
+                                                            Mélangés
                                                        </IonItem>
                                         </IonMenuToggle>
                                    {
                                         genres.map((item2: any) => (
 
                                              <IonMenuToggle key={item2.id} autoHide={false} slot='content'>
-                                                       <IonItem routerLink={`${item1.url}/${item2.name}/${item2.id}`} routerDirection="none">
+                                                       <IonItem className='sous_menu' routerLink={`${item1.url}/${item2.name}/${item2.id}`} routerDirection="none">
                                                             {item2.name}
                                                        </IonItem>
                                              </IonMenuToggle>

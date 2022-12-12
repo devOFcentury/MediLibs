@@ -5,6 +5,7 @@ import Menu from './components/Menu';
 import Acceuil from './pages/Acceuil/Acceuil';
 import Movies from './pages/Movies/Movies';
 import TV from './pages/TV/TV';
+import Book from './pages/Book/Book';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -34,11 +35,11 @@ const App: React.FC = () => (
         <Menu/>
         <IonRouterOutlet id='main'>
           <Route exact path='/acceuil' component={Acceuil} />
+          <Route exact path='/livres' component={Book} />
           <Route exact path='/tv' component={TV} />
           <Route exact path='/tv/:genre/:id' component={TV} />
           <Route exact path='/movies' component={Movies} />
           <Route exact path='/movies/:genre/:id' component={Movies} />
-
           <Route exact path="/">
             <Redirect to="/acceuil" />
           </Route>

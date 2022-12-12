@@ -10,20 +10,24 @@ import {
 } from '@ionic/react';
 import React, { useState, useEffect } from 'react';
 import SwipeContainer from '../../components/SwipeContainer';
-import InfoMovie from '../../components/InfoMovie';
+import Info from '../../components/Info';
 import './Acceuil.css';
 
 const URL_MOVIES = 'https://api.themoviedb.org/3/movie/popular?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&language=fr-FR';
 const URL_TV = 'https://api.themoviedb.org/3/tv/popular?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&language=fr-FR';
 const URL_Trending = 'https://api.themoviedb.org/3/trending/all/day?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&language=fr-FR';
+const URL_BOOK = 'https://example-data.draftbit.com/books?_limit=10';
+
 
 const Acceuil: React.FC = () => {
   
   const [movies, setMovies] = useState([] as any);
   const [tv, setTv] = useState([] as any);
   const [trending, setTrending] = useState([] as any);
+  const [books, setBooks] = useState([] as any)
   const [open, setOpen] = useState(false);
   const [data, setData] = useState({} as any);
+
 
   useEffect(() => {
     fetch(URL_MOVIES)
@@ -37,6 +41,10 @@ const Acceuil: React.FC = () => {
     fetch(URL_Trending)
     .then(res => res.json())
     .then(res => setTrending(res.results));
+
+    fetch(URL_BOOK)
+    .then(res => res.json())
+    .then(res => setBooks(res));
  
 }, [])
 
@@ -53,12 +61,14 @@ const Acceuil: React.FC = () => {
               
               <img src='../../assets/Woman-king.jpg' alt='woman' />
               <p className='box-title'>Top film</p>
-              <SwipeContainer results={movies} setData={setData} setOpen={setOpen} />
+              <SwipeContainer results={movies} setData={setData} setOpen={setOpen} type='movie_Tv' />
               <p className='box-title'>TV</p>
-              <SwipeContainer results={tv} setData={setData} setOpen={setOpen} />
+              <SwipeContainer results={tv} setData={setData} setOpen={setOpen} type='movie_Tv' />
               <p className='box-title'>Tendances</p>
-              <SwipeContainer results={trending} setData={setData} setOpen={setOpen} />
-              <InfoMovie open={open} setOpen={setOpen} data={data} />
+              <SwipeContainer results={trending} setData={setData} setOpen={setOpen} type='movie_Tv' />
+              <p className='box-title'>Livres</p>
+              <SwipeContainer results={books} setData={setData} setOpen={setOpen} type='book' />
+              <Info open={open} setOpen={setOpen} data={data} />
          </div>
         </IonContent>
 
