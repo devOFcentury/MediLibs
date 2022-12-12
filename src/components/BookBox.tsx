@@ -15,8 +15,6 @@ interface BooksProps {
 const BookBox: React.FC<BooksProps> = ({booksprops, setOpen, setData}) => {
 
      const [search, setSearch] = useState('');
-     const [saveData, setSaveData] = useState([] as any);
-     const [iskeyEnter, setIskeyEnter] = useState(false);
 
      const activeModal = (book: any, type: 'book') => {
           setData({...book, type: type});

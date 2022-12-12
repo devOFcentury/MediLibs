@@ -1,12 +1,7 @@
-import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
-import { IonIcon, IonImg } from "@ionic/react";
-
-const API_IMG = "https://image.tmdb.org/t/p/w500/";
-
-
-
+import { IonImg } from "@ionic/react";
+import { API_IMG } from "../API.js";
 interface SwiperProps {
      results: any,
      setData: any,

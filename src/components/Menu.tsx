@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { API_GENRES } from "../API.js";
 import './Menu.css';
 
 import { 
@@ -6,7 +7,7 @@ import {
      tvOutline,
      filmOutline,
      bookOutline
-   } from 'ionicons/icons';
+} from 'ionicons/icons';
 import { 
      IonAccordion,
      IonAccordionGroup,
@@ -57,8 +58,6 @@ const paths: Path[] = [
    
      
 ];
-
-const API_GENRES = "https://api.themoviedb.org/3/genre/movie/list?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&language=fr-FR";
 
 const Menu: React.FC = () => {
 
@@ -141,40 +140,8 @@ const Menu: React.FC = () => {
                          })
                     }
                </IonAccordionGroup>
-               {
-                    // paths.map((item, index) => (
-                    //      <IonMenuToggle key={index} autoHide={false}>
-                    //           <IonItem routerLink={item.url} routerDirection="none">
-                    //                <IonIcon icon={item.iosIcon} slot="start"></IonIcon>
-                    //                {item.title}
-                    //           </IonItem>
-                    //      </IonMenuToggle>
-                    // ))
-               }
           </IonContent>
     </IonMenu>
-
-
-//     <IonMenu contentId='main'>
-//           <IonHeader>
-//                <IonToolbar>
-//                     <IonTitle>Menu</IonTitle>
-//                </IonToolbar>
-//           </IonHeader>
-
-//           <IonContent>
-//                {
-//                     paths.map((item, index) => (
-//                          <IonMenuToggle key={index} autoHide={false}>
-//                               <IonItem routerLink={item.url} routerDirection="none">
-//                                    <IonIcon icon={item.iosIcon} slot="start"></IonIcon>
-//                                    {item.title}
-//                               </IonItem>
-//                          </IonMenuToggle>
-//                     ))
-//                }
-//           </IonContent>
-//     </IonMenu>
   )
 }
 
