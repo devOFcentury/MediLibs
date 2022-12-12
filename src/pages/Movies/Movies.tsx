@@ -11,6 +11,7 @@ import {
 } from '@ionic/react';
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
+import InfoMovie from '../../components/InfoMovie';
 import MoviesBox from '../../components/MovieBox';
 import './Movies.css'
 
@@ -32,6 +33,8 @@ const Movies: React.FC<genreProps> = ({match}) => {
   const [movies, setMovies] = useState([] as any);
   const [showLoading, setShowLoading] = useState(false);
   const [simpleUrl, setSimpleUrl] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [data, setData] = useState({} as any);
 
 
   useEffect(() => {
@@ -43,8 +46,7 @@ const Movies: React.FC<genreProps> = ({match}) => {
       .then(res => {
         setGenre(match.params.genre);
         setMovies(res.results);
-        console.log(res)
-        setShowLoading(false)
+        setShowLoading(false);
       })
     }
     else {
@@ -78,7 +80,8 @@ const Movies: React.FC<genreProps> = ({match}) => {
         </IonHeader>
 
         <IonContent>
-          <MoviesBox moviesprops={movies} tv_movies='movie' simpleUrl={simpleUrl} />
+          <MoviesBox moviesprops={movies} tv_movies='movie' simpleUrl={simpleUrl} setOpen={setOpen} setData={setData} />
+          <InfoMovie open={open} setOpen={setOpen} data={data} />
         </IonContent>
 
       <IonFooter>
