@@ -28,13 +28,13 @@ const Swipe: React.FC<SwiperProps> = ({results, setData, setOpen, type}) => {
                {
                     type === "movie_Tv" ? (
                          results.slice(0, 11).map((movie: any, index: number) => (
-                              <SwiperSlide key={index} onClick={() => activeModal(movie)}>
+                              <SwiperSlide style={{cursor: 'pointer'}} key={index} onClick={() => activeModal(movie)}>
                                    <IonImg src={API_IMG+movie.poster_path}/>
                               </SwiperSlide>
                          ))
                     ) : (
                          results.map((movie: any, index: number) => (
-                              <SwiperSlide key={index} onClick={() => activeModal(movie, 'book')}>
+                              <SwiperSlide style={{cursor: 'pointer'}} key={index} onClick={() => activeModal(movie, 'book')}>
                                    <IonImg src={movie.image_url}/>
                               </SwiperSlide>
                          ))

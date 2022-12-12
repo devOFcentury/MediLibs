@@ -120,15 +120,15 @@ const Menu: React.FC = () => {
                                              <IonLabel>{item1.title}</IonLabel>
                                         </IonItem>
                                         <IonMenuToggle autoHide={false} slot='content'>
-                                                       <IonItem  routerLink={item1.url} routerDirection="none">
-                                                            Films
+                                                       <IonItem className='sous_menu'  routerLink={item1.url} routerDirection="none">
+                                                            Mélangés
                                                        </IonItem>
                                         </IonMenuToggle>
                                    {
                                         genres.map((item2: any) => (
 
                                              <IonMenuToggle key={item2.id} autoHide={false} slot='content'>
-                                                       <IonItem routerLink={`${item1.url}/${item2.name}/${item2.id}`} routerDirection="none">
+                                                       <IonItem className='sous_menu' routerLink={`${item1.url}/${item2.name}/${item2.id}`} routerDirection="none">
                                                             {item2.name}
                                                        </IonItem>
                                              </IonMenuToggle>

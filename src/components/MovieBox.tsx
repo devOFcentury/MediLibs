@@ -82,7 +82,7 @@ const MoviesBox: React.FC<MoviesProps> = ({ moviesprops, tv_movies, simpleUrl, s
           {
             data.map((item: any, index: any) => (
               <IonCard key={index} onClick={() => activeModal(item)}>
-                <IonImg src={item.poster_path ? (API_IMG+item.poster_path) : '../../assets/default-image.jpg'} alt='image du film' />
+                <IonImg className='te' src={item.poster_path ? (API_IMG+item.poster_path) : '../../assets/default-image.jpg'} alt='image du film' />
               </IonCard>
             ))
           }
