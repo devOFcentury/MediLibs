@@ -45,7 +45,7 @@ const MoviesBox: React.FC<MoviesProps> = ({ moviesprops, tv_movies, simpleUrl, s
         {
           simpleUrl && 
           <IonSearchbar 
-            placeholder='Recherher un film' 
+            placeholder={`Recherher un ${tv_movies === 'movie' ?  'film': 'film tv'}`} 
             value={search} 
             onKeyPress={handleKeypress}
             onIonChange={e => {

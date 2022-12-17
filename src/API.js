@@ -11,5 +11,6 @@ export const URL_TV = 'https://api.themoviedb.org/3/tv/popular?api_key=707b3d8f9
 export const URL_Trending = 'https://api.themoviedb.org/3/trending/all/day?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&language=fr-FR';
 
 export const URL_BOOK = 'https://example-data.draftbit.com/books?_limit=10';
+export const URL_BOOK_20 = 'https://example-data.draftbit.com/books?_limit=20';
 
 export const API_MOVIES_BY_GENRES = 'https://api.themoviedb.org/3/discover/movie?api_key=707b3d8f99f24b6c0a6fe07060abaf4d&language=fr-FR&with_genres=';
